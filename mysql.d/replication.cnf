@@ -1,0 +1,19 @@
+[mysqld]
+
+# If set to 1, InnoDB will flush (fsync) the transaction logs to the
+# disk at each commit, which offers full ACID behavior. If you are
+# willing to compromise this safety, and you are running small
+# transactions, you may set this to 0 or 2 to reduce disk I/O to the
+# logs. Value 0 means that the log is only written to the log file and
+# the log file flushed to disk approximately once per second. Value 2
+# means the log is written to the log file at each commit, but the log
+# file is only flushed to disk approximately once per second.
+#
+# IF MASTER, use ‘1’ if SLAVE use ‘2’
+
+server-id=1
+
+# master:
+innodb_flush_log_at_trx_commit = 1 
+# slave: 
+# innodb_flush_log_at_trx_commit = 0
